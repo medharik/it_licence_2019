@@ -5,15 +5,14 @@ define('TVA',20);
 $age=20;
 $majorite=($age>18)? "Majeur":"Mineur";
 $c=($age>18)? "blue":"red";
-$sexe="homme";
+$sexe="homme"; ;
 if($sexe=="homme"){
     $poli="Mr.";
     $couleur="deepskyblue";
 }else{
     $poli="Mme.";
     $couleur="pink";
-    
-}
+    }
 $m=$age>18;//true
 $b=1=="1";
 var_dump($b);
