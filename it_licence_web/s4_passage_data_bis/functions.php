@@ -12,7 +12,8 @@ function connecter_db(){
     //EXECPTION_MODE
     try{
             $options=[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION];
-            $link=  new PDO ("mysql:host=localhost;dbname=db1;port=3306","root","",$options);
+            $link=  new PDO ("mysql:host=localhost;dbname=db1;port=3306","root","",
+            $options);
             return $link;
     }catch(PDOException $e ){
 die ("erreur de connexion a la base de donnees ".$e->getMessage());
@@ -91,7 +92,22 @@ function find($id){
 // // test de gotomeeting
 // $table->dropColumn('column');
 
+//rechercher
+function rechercher($nom){
+    try{
+        $link= connecter_db();
+         $rp=$link->prepare("select * from etudiant where nom like ? ");
+         $rp->execute(["%$nom%"]);
+     $resultat=  $rp->fetchAll(PDO::FETCH_ASSOC);  
 
+     return $resultat;
+ }catch(PDOException $e ){
+ die ("erreur de  recuperation des etudiants dans  la base de donnees ".$e->getMessage());
+ }
+
+}
+
+//fin recherche 
 
 
 ?>

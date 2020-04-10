@@ -4,6 +4,7 @@ include("functions.php");
  $classe=$_POST['classe'];
  ajouter($nom,$classe);
 
+ header("location:index.php?op=sto");
 
 ?>
 <!DOCTYPE html>
